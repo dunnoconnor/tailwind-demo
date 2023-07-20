@@ -1,23 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import apod from './apod.jpeg'
+import Header from './components/Header';
+import SizeSelect from './components/SizeSelect';
+import DateSelect from './components/DateSelect';
+import { useState } from 'react';
 
 function App() {
+  const [date,setDate] = useState(new Date())
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App flex-col items-center justify-center text-center">
+      <Header/>
+      <img className="nasa w-fit" src={apod} alt="waterfall borealis"/>
+      <DateSelect date={date} setDate={setDate}/>
+      <SizeSelect/>
     </div>
   );
 }
